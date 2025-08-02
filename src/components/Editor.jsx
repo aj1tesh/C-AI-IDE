@@ -65,7 +65,7 @@ const Editor = ({ file, content, updateFile, addTerminalOutput, setAiSuggestions
     addTerminalOutput(`Compiling ${file}...`)
     
     try {
-      const response = await axios.post('/api/compile', {
+      const response = await axios.post(`${process.env.VITE_API_URL || ''}/api/compile`, {
         code: content,
         filename: file
       })
@@ -82,7 +82,7 @@ const Editor = ({ file, content, updateFile, addTerminalOutput, setAiSuggestions
         
         // Analyze compilation errors for better suggestions
         try {
-          const errorAnalysis = await axios.post('/api/analyze-errors', {
+          const errorAnalysis = await axios.post(`${process.env.VITE_API_URL || ''}/api/analyze-errors`, {
             code: content,
             compilationError: response.data.error
           })
@@ -158,7 +158,7 @@ const Editor = ({ file, content, updateFile, addTerminalOutput, setAiSuggestions
     addTerminalOutput('🔧 AI Auto-fix in progress...')
     
     try {
-      const response = await axios.post('/api/autofix', {
+      const response = await axios.post(`${process.env.VITE_API_URL || ''}/api/autofix`, {
         code: content,
         filename: file
       })
@@ -187,7 +187,7 @@ const Editor = ({ file, content, updateFile, addTerminalOutput, setAiSuggestions
     addTerminalOutput('✨ AI Code Generation in progress...')
     
     try {
-      const response = await axios.post('/api/generate', {
+      const response = await axios.post(`${process.env.VITE_API_URL || ''}/api/generate`, {
         prompt: prompt,
         context: content
       })

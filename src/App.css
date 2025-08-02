@@ -1,0 +1,29 @@
+.app {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: #1e1e1e;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0; /* Allow content to shrink */
+}
+
+/* VS Code-like color scheme */
+:root {
+  --bg-primary: #1e1e1e;
+  --bg-secondary: #252526;
+  --bg-tertiary: #2d2d30;
+  --text-primary: #cccccc;
+  --text-secondary: #969696;
+  --accent-blue: #007acc;
+  --accent-green: #4ec9b0;
+  --accent-orange: #ce9178;
+  --accent-red: #f44747;
+  --accent-purple: #8b5cf6;
+  --border-color: #3c3c3c;
+} 

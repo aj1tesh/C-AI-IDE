@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "setup": "node setup.js",
+    "setup-env": "node setup-env.js",
     "start-backend": "cd backend && npm run dev",
     "start-frontend": "vite"
   },

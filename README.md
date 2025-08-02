@@ -1,17 +1,30 @@
 # C++ AI IDE
 
-A modern full-stack C++ IDE with web-based UI similar to VS Code, featuring syntax highlighting, integrated terminal, AI-based code review, and auto-fix capabilities.
+A modern, web-based C++ development environment built with React and Node.js. Features a VS Code-inspired interface with integrated AI-powered code analysis and real-time compilation.
 
-## Features
+## Overview
 
-- **Modern Web UI**: React-based interface with VS Code-like design
-- **Monaco Editor**: Full-featured code editor with C++ syntax highlighting
-- **File Explorer**: Create, edit, and manage C++ files
-- **Integrated Terminal**: Command-line interface with basic commands
-- **C++ Compilation**: Real-time compilation using g++ compiler
-- **AI Code Review**: Automated code analysis and suggestions
-- **AI Auto-fix**: Automatic code correction and improvements
-- **File Management**: Download files and manage project structure
+This IDE provides a complete C++ development experience in the browser, combining the power of Monaco Editor with intelligent code assistance and real-time compilation capabilities.
+
+## Key Features
+
+### Core Development Tools
+- **Advanced Code Editor**: Monaco Editor with C++ syntax highlighting and IntelliSense
+- **Real-time Compilation**: Integrated g++ compiler with instant feedback
+- **File Management**: Create, edit, and organize C++ projects
+- **Integrated Terminal**: Built-in command-line interface
+
+### AI-Powered Assistance
+- **Code Review**: Automated analysis with actionable suggestions
+- **Error Detection**: Intelligent compilation error analysis
+- **Auto-fix**: One-click code corrections and improvements
+- **Code Generation**: AI-assisted code generation from descriptions
+
+### Developer Experience
+- **Modern UI**: Clean, responsive interface inspired by VS Code
+- **Three-panel Layout**: File explorer, editor, and AI review pane
+- **Real-time Feedback**: Instant compilation results and suggestions
+- **Cross-platform**: Works on Windows, macOS, and Linux
 
 ## Project Structure
 
@@ -31,167 +44,217 @@ cpp-ai-ide/
 └── package.json           # Frontend dependencies
 ```
 
-## Prerequisites
+## System Requirements
 
-- **Node.js** (v16 or higher)
+### Prerequisites
+- **Node.js** 16.0 or higher
 - **g++ compiler** (GNU C++ compiler)
-- **npm** or **yarn**
+- **npm** or **yarn** package manager
 
-### Installing g++ Compiler
+### Compiler Installation
 
-#### Windows:
-1. Install MinGW-w64 or use WSL (Windows Subsystem for Linux)
-2. Add g++ to your PATH environment variable
+#### Windows
+1. **Option 1**: Install [MinGW-w64](https://www.mingw-w64.org/)
+2. **Option 2**: Use [WSL](https://docs.microsoft.com/en-us/windows/wsl/) (Windows Subsystem for Linux)
+3. Add g++ to your system PATH environment variable
 
-#### macOS:
+#### macOS
 ```bash
-# Using Homebrew
+# Using Homebrew (recommended)
 brew install gcc
 
-# Or using Xcode Command Line Tools
+# Alternative: Xcode Command Line Tools
 xcode-select --install
 ```
 
-#### Linux (Ubuntu/Debian):
+#### Linux (Ubuntu/Debian)
 ```bash
 sudo apt update
 sudo apt install build-essential
 ```
 
-## Installation
+## Quick Start
 
-1. **Clone the repository:**
-   ```bash
-   git clone <repository-url>
-   cd cpp-ai-ide
-   ```
+### 1. Clone and Setup
+```bash
+git clone <repository-url>
+cd cpp-ai-ide
+```
 
-2. **Install frontend dependencies:**
-   ```bash
-   npm install
-   ```
+### 2. Install Dependencies
+```bash
+# Install frontend dependencies
+npm install
 
-3. **Install backend dependencies:**
-   ```bash
-   cd backend
-   npm install
-   cd ..
-   ```
+# Install backend dependencies
+cd backend && npm install && cd ..
+```
 
-4. **Set up environment variables:**
-   ```bash
-   # Copy the example environment file
-   cp backend/env.example backend/.env
-   ```
+### 3. Configure Environment
+```bash
+# Run the setup script to create environment files
+npm run setup-env
 
-## Running the Application
+# Edit backend/.env and add your Gemini API key
+# Get your API key from: https://makersuite.google.com/app/apikey
+```
 
-### Development Mode
+## Development
 
-1. **Start the backend server:**
+### Start Development Servers
+
+1. **Backend Server** (Terminal 1)
    ```bash
    cd backend
    npm run dev
    ```
-   The backend will run on `http://localhost:3001`
+   Server runs on `http://localhost:3001`
 
-2. **Start the frontend development server:**
+2. **Frontend Development Server** (Terminal 2)
    ```bash
-   # In a new terminal, from the root directory
    npm run dev
    ```
-   The frontend will run on `http://localhost:3000`
+   Application runs on `http://localhost:3000`
 
-3. **Open your browser:**
-   Navigate to `http://localhost:3000` to access the IDE
+3. **Access the IDE**
+   Open `http://localhost:3000` in your browser
 
-### Production Build
+### Production Deployment
 
-1. **Build the frontend:**
+1. **Build the Application**
    ```bash
    npm run build
    ```
 
-2. **Start the production server:**
+2. **Start Production Server**
    ```bash
    cd backend
    npm start
    ```
 
-## Usage
+## User Guide
 
-### Basic Features
+### Getting Started
 
-1. **Creating Files**: Click the "+" button in the file explorer to create new C++ files
-2. **Editing Code**: Use the Monaco editor with full C++ syntax highlighting
-3. **Compiling**: Click the "Compile" button to compile and run your C++ code
-4. **AI Review**: Click "Review" to get AI-powered code suggestions
-5. **Auto-fix**: Click "Fix Code" to automatically fix common issues
-6. **Terminal**: Use the integrated terminal for additional commands
+1. **Create Files**: Use the "+" button in the file explorer to create new C++ files
+2. **Edit Code**: Write C++ code with full syntax highlighting and IntelliSense
+3. **Compile & Run**: Click "Compile" to build and execute your code
+4. **AI Review**: Click "Review" for intelligent code analysis and suggestions
+5. **Auto-fix**: Apply suggested improvements with one click
+6. **Terminal**: Access the integrated terminal for additional commands
+
+### AI-Powered Features
+
+The IDE provides intelligent assistance through:
+
+- **Code Analysis**: Detects potential issues and suggests improvements
+- **Error Detection**: Identifies compilation errors and provides fixes
+- **Style Guidance**: Recommends best practices and code style improvements
+- **Performance Optimization**: Suggests efficiency improvements
+- **Security Analysis**: Identifies potential security vulnerabilities
 
 ### Terminal Commands
 
-- `help` - Show available commands
-- `clear` - Clear terminal output
-- `ls` - List files (simulated)
-- `pwd` - Show current directory
-- `date` - Show current date/time
+| Command | Description |
+|---------|-------------|
+| `help` | Display available commands |
+| `clear` | Clear terminal output |
+| `ls` | List files in current directory |
+| `pwd` | Show current working directory |
+| `date` | Display current date and time |
 
-### AI Features
+## Technical Documentation
 
-The IDE includes intelligent code analysis that can detect:
+### API Reference
 
-- **Missing includes**: Automatically suggests required header files
-- **Syntax errors**: Identifies missing semicolons and syntax issues
-- **Style issues**: Warns about using namespace std and magic numbers
-- **Memory management**: Suggests smart pointers for better memory safety
-- **Code improvements**: Provides optimization suggestions
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/compile` | POST | Compile and execute C++ code |
+| `/api/review` | POST | Generate AI-powered code review |
+| `/api/autofix` | POST | Apply automatic code fixes |
+| `/api/analyze-errors` | POST | Analyze compilation errors |
+| `/api/generate` | POST | Generate code from descriptions |
+| `/api/health` | GET | Health check endpoint |
 
-## API Endpoints
+### Sample Projects
 
-### Backend API (Port 3001)
+The IDE includes example C++ projects to help you get started:
 
-- `POST /api/compile` - Compile and run C++ code
-- `POST /api/review` - Get AI code review suggestions
-- `POST /api/autofix` - Apply automatic code fixes
-- `GET /api/health` - Health check endpoint
+- **`main.cpp`**: Demonstrates vector operations and sorting algorithms
+- **`utils.h`**: Header file with utility function declarations
+- **`utils.cpp`**: Implementation of string manipulation utilities
 
-## Example C++ Code
+## Security & Configuration
 
-The IDE comes with example C++ files:
+### API Key Setup
 
-- `main.cpp` - Basic C++ program with vector operations
-- `utils.h` - Header file with utility function declarations
-- `utils.cpp` - Implementation of utility functions
+**⚠️ Security Notice**: API keys are sensitive credentials and should never be committed to version control.
+
+#### Setup Instructions
+
+1. **Obtain API Key**: Visit [Google AI Studio](https://makersuite.google.com/app/apikey) to create your Gemini API key
+2. **Configure Environment**: Run `npm run setup-env` to create the environment file
+3. **Add Your Key**: Edit `backend/.env` and add your API key:
+   ```
+   GEMINI_API_KEY=your_actual_api_key_here
+   ```
+4. **Verify Security**: Ensure `.env` files are listed in `.gitignore`
+
+#### Security Features
+
+- Environment variables for sensitive data
+- Automatic `.env` file exclusion from version control
+- Secure API key handling with no hardcoded values
+- Input validation and sanitization
 
 ## Troubleshooting
 
 ### Common Issues
 
-1. **g++ not found**: Ensure g++ is installed and in your PATH
-2. **Port conflicts**: Change ports in the configuration files
-3. **CORS errors**: Check that the backend is running on the correct port
-4. **Compilation errors**: Check the terminal output for detailed error messages
+| Issue | Solution |
+|-------|----------|
+| **g++ not found** | Ensure g++ is installed and added to your system PATH |
+| **Port conflicts** | Change ports in configuration files or stop conflicting services |
+| **CORS errors** | Verify backend is running on the correct port (3001) |
+| **Compilation failures** | Check terminal output for detailed error messages |
+| **API key errors** | Verify your Gemini API key is correctly set in `backend/.env` |
 
 ### Debug Mode
 
-Enable debug logging by setting `NODE_ENV=development` in the backend `.env` file.
+Enable detailed logging by setting `NODE_ENV=development` in your `backend/.env` file.
+
+### Getting Help
+
+1. Check the terminal output for error messages
+2. Verify all dependencies are installed correctly
+3. Ensure your API key is properly configured
+4. Check that both frontend and backend servers are running
 
 ## Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+We welcome contributions! Please follow these steps:
+
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
+
+### Development Guidelines
+
+- Follow existing code style and conventions
+- Add tests for new features when applicable
+- Update documentation for any API changes
+- Ensure all tests pass before submitting
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
-- Monaco Editor for the code editing experience
-- VS Code for UI inspiration
-- React and Vite for the frontend framework
-- Express.js for the backend server 
+- **[Monaco Editor](https://microsoft.github.io/monaco-editor/)**: Powerful code editing experience
+- **[VS Code](https://code.visualstudio.com/)**: UI/UX inspiration and design patterns
+- **[React](https://reactjs.org/)**: Frontend framework
+- **[Express.js](https://expressjs.com/)**: Backend server framework
+- **[Google Gemini](https://ai.google.dev/)**: AI-powered code analysis 

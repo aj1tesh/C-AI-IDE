@@ -21,11 +21,11 @@ const PORT = process.env.PORT || 3001
 let genAI = null
 let AI_MODEL = 'gemini-1.5-flash'
 
-// Set Gemini API key directly if not loaded from .env
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || 'AIzaSyAptj2Qfg1qkHOykasD-Pv9ZOd-AlhAUJs'
+// Set Gemini API key from environment variable only
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-1.5-flash'
 
-console.log('🔍 Debug: GEMINI_API_KEY =', GEMINI_API_KEY ? 'Set' : 'Not set')
+console.log('🔍 Debug: GEMINI_API_KEY =', GEMINI_API_KEY ? 'Set (length: ' + GEMINI_API_KEY.length + ')' : 'Not set')
 console.log('🔍 Debug: GEMINI_MODEL =', GEMINI_MODEL || 'Not set')
 
 if (GEMINI_API_KEY && GEMINI_API_KEY !== 'your_gemini_api_key_here') {
